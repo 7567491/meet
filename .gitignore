@@ -1,0 +1,16 @@
+# AWS credentials and sensitive data
+.aws/
+.local/share/amazon-q/
+.cache/
+.npm/
+.claude*
+.claudecode/
+.config/
+
+# System files
+.bash_logout
+.bashrc
+.profile
+
+# Logs
+*.log
