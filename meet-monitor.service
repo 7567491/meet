@@ -1,0 +1,26 @@
+[Unit]
+Description=Akamai Meeting Room Booking System Health Monitor
+After=network.target meet-app.service
+Requires=meet-app.service
+
+[Service]
+Type=simple
+User=meet
+Group=meet
+WorkingDirectory=/home/meet
+ExecStart=/usr/bin/python3 /home/meet/monitor_service.py start
+Restart=always
+RestartSec=10
+KillMode=mixed
+TimeoutStopSec=10
+
+# 环境变量
+Environment=PYTHONPATH=/home/meet/meeting-room-booking
+Environment=PYTHONUNBUFFERED=1
+
+# 日志
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
